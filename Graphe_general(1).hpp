@@ -89,9 +89,9 @@ class Graphe_couleur : public Graphe{
 	}
 	
 	int nb_voisins(int i){
-		res=0;
+		int res=0;
 		std::vector<int> aux=sommets;
-		auto function=[i,aux](std::pair<int,int> k){
+		auto function=[i,aux,&res](std::pair<int,int> k){
 	if(k.first==aux[i]){
 		res+=1;}
 	else if (k.second==aux[i]){
@@ -100,11 +100,11 @@ class Graphe_couleur : public Graphe{
 	std::for_each(arretes.begin(),arretes.end(), function);
 	return res;}
 	
-	int nb_color_disp(int i){
-		res=N;
-		std::vector<int> aux2;
+	int nb_color_disp(int i){ // a modifier
+		int res=N;
+		std::vector<int> aux2=couleurs;
 		std::vector<int> aux=sommets;
-		auto function=[i,aux](std::pair<int,int> k){
+		auto function=[i,aux, aux2](std::pair<int,int> k){
 	if(k.first==aux[i]){
 		if(std::find(aux2.begin(),aux2.end(),k.second)!=aux2.end()){
 			res+=-1;
@@ -120,28 +120,37 @@ class Graphe_couleur : public Graphe{
 	return res;}
 	
 	std::vector<int> color_disp(int i){
-		res=N;
 		std::vector<int> aux2(N);
 		std::iota ( std::begin(aux2),std::end(aux2),0 );
 		std::vector<int> aux=sommets;
-		auto function=[i,aux](std::pair<int,int> k){
+		auto function=[i,aux,aux2](std::pair<int,int> k){
 	if(k.first==aux[i]){
-		if(std::find(aux2.begin(),aux2.end(),k.second)!=aux2.end()){
-			res+=-1;
+		if(std::find(aux2.begin(),aux2.end(),couleurs[k.second])!=aux2.end()){
+			aux2.pop(couleurs[k.second]);
 		}
 			;}
 	else if (k.second==aux[i]){
-        if(std::find(aux2.begin(),aux2.end(),k.first)!=aux2.end()){
-			res+=-1;
+        if(std::find(aux2.begin(),aux2.end(),couleurs[k.first])!=aux2.end()){
+			aux2.pop(couleurs[k.first]);
 		}
 		;}
       ;}
 	std::for_each(arretes.begin(),arretes.end(), function);
+	return aux2;}
+	
+	std::vector<int> tab_voisin(){
+		std::vector<int> res;
+		for(int i=0;i<n;i++){
+			res[i]=nb_voisins(i);
+		}
 	return res;}
 	
-	
-	
-		
+	std::map< int, int > tab_color_disp(){
+		std::map< int, int > res;
+		for(int i=0;i<n;i++){
+			res[i]=nb_color_disp(i);
+		}
+	return res;}
 	
 	
 	void coloration(std::vector< std::pair<int,int> > couleurs_sommets, int nb_couleurs){
@@ -151,14 +160,78 @@ class Graphe_couleur : public Graphe{
 			}
 		}
 		
-		
-	
-	
-	
-	
 	// choisir soit constr ou method coloration, avancer sur algo backtracking (15-20 lignes) pour sem pro
 	
-	
+	void backtracking(){
+		std::vector<int> tab1=tab_voisin();
+		tab2=tab_color_disp();
+		// sommet = ...
+		// couleur = ...
+		bool boo=recursive();
+		std::cout << "l'algo renvoie" << boo << std::endl;
+		;}
+		
+	bool recursive( ){ // Attention choisir avec arguments ou sans arguments (essayer sans)
+		std::vector<int> v(0);
+		for(int i=0;i<n;i++){
+			if(couleurs[i]==-1){
+			    v.push_back(nb_color_disp(i));}
+		}
+		
+		std::vector<int> iterator it=min_element(v.begin(),v.end());
+		std::vector<int> iterator myints[]={}
+		while(it!=v.end()){
+			it=min_element(it,v.end());
+			myints.push_back(it);
+		}
+		
+		// if pas de noeud non coloré return true
+		
+		if( std::find(.begin(), .end(),-1) != .end() ){ return true;}
+		
+		// cas egalite
+		
+		if(myints.size() > 1) {
+			it=max_element(it,tab1.end());
+			while(it!=tab1.end()){
+			it=max_element(it,tab1.end());
+			myints.push_back(it);
+		}
+		}
+		
+		int sommet_courant=sommets[it];
+		// if pour ce noeud pas de couleur disp return false
+		
+		if(nb_color_disp(sommet_courant)==0;){ return false;}
+		
+		// ETAPE 4  (choix prochain sommet)   
+		int couleur=color_disp(sommet_courant)[0];
+		couleurs[sommet_courant]=couleur;
+		// manipuler les couleurs a certain moment
+		bool b=recursive();
+		if(b){ return true;}
+		else{ // On teste avec les autres couleurs disponibles
+			for (int i=0;i<nb_color_disp(sommet_courant);i++){
+				b=recursive();
+				if(b){ return true;}
+			}
+			return false;}
+			
+		// ETAPE 5 voir si premier appel de recursive est false ou true  
+		}
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
 };
 
 
