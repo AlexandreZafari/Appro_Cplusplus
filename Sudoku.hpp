@@ -18,6 +18,9 @@ class Sudoku : public Graphe_couleur{
         // Constructeur : permet d'initialiser/construire la grille du Sudoku
         Sudoku(int cote, vector<int> num_cases);
         
+        // Vérifie si l'arrête existe
+        bool existe_arrete(int i,int j);
+
         // Méthode : permet d'afficher la Grille remplie ou pas du Sudoku
         void affichage_sudoku();
         void affichage_couleurs();
