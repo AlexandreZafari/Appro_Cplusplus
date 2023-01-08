@@ -141,34 +141,30 @@ class Sudoku: public Graphe_couleur{
 			// fin creation arrete
 			}
 			
-		//Graphe_couleur(cases,arr,4);
+		    //Graphe_couleur(cases,arr,4);
 		
-		//arretes=arr;
-		sommets=cases;
-		for(int i=0;i<nb_cases;i++){
-				couleurs.push_back(num_cases[i]);
-			}
+            //arretes=arr;
+            sommets=cases;
+            for(int i=0;i<nb_cases;i++){
+                    couleurs.push_back(num_cases[i]);
+                }
 			
-		}
+		
+        }
 			
 			
 	
 		    bool existe_arrete(int i,int j){
-			if(i==j){return true;}
+			    if(i==j){return true;}
 			    int res=0;
-            auto function=[i,j,&res](std::pair<int,int> k){
-            if(k.first==i && k.second==j){res=res+1;}
-                if(k.first==j && k.second==i){res=res+1;}
-                ;} ;
-
-            /*auto function=[i,j,&res](std::pair<int,int> k){
-            if(k.first==i){
-                if(k.second==j){res+=1;} ;}
-            if(k.second==i){
-                if(k.first==j){res+=1;} ;}   ;} ; */
-            std::for_each(arretes.begin(),arretes.end(), function);
-            if(res>0){return true;}
-            return false;}	
+                auto function=[i,j,&res](std::pair<int,int> k){
+                    if(k.first==i && k.second==j){res=res+1;}
+                    if(k.first==j && k.second==i){res=res+1;}
+                ;}
+                std::for_each(arretes.begin(),arretes.end(), function);
+                if(res>0){return true;}
+                return false;
+            }	
 };
 
 void Sudoku::affichage_sudoku(){
