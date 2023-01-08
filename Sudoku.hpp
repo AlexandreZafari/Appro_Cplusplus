@@ -16,7 +16,7 @@ class Sudoku : public Graphe_couleur{
         int taille;
     public:
         // Constructeur : permet d'initialiser/construire la grille du Sudoku
-        Sudoku(int cote, vector<int> num_cases): ;
+        Sudoku(int cote, vector<int> num_cases);
         
         // Méthode : permet d'afficher la Grille remplie ou pas du Sudoku
         void affichage_sudoku();
