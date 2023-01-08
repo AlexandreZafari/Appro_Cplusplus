@@ -1,8 +1,8 @@
 #include "Sudoku.hpp"
 
 class Sudoku: public Graphe_couleur{
-		private:
-            int taille;
+    private:
+        int taille;
 		
 		public:
 		// CONVENTION : les numeros sont croissants de gauche a droite et ligne par ligne de bas en haut
