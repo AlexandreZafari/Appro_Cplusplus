@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Graphe_colore.hpp"
+#include "Graphe_couleur.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -11,15 +11,15 @@
 using namespace std;
 
 
-
-class Sudoku : public Graphe_colore{
+class Sudoku : public Graphe_couleur{
     private:
-        // Argument Grill du Sudoku : vecteur contenant des vecteurs d'entiers = matrice 
-        vector<vector<int> > Grille;
+        // Argument taille du Sudoku :  
+        int taille;
     public:
         // Constructeur : permet d'initialiser/construire la grille du Sudoku
-        Sudoku(vector<vector<int> >);
+        Sudoku(int cote, vector<int> num_cases);
         
         // Méthode : permet d'afficher la Grille remplie ou pas du Sudoku
-        void Affichage_Grille();
+        void affichage_sudoku();
+        void affichage_couleurs();
 };
