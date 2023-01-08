@@ -11,12 +11,11 @@
 #define GRAPHE
 
 
-class Graphe
-{
-protected:
-    int n;     // nombre de sommets
-    std::vector<std::pair<int,int>> arretes;
-    std::vector<int> sommets;
+class Graphe{
+    protected:
+        int n;     // nombre de sommets
+	vector<std::pair<int,int>> arretes;
+	vector<int> sommets;
     
 public:
 
