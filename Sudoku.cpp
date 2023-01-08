@@ -4,20 +4,20 @@ class Sudoku: public Graphe_couleur{
     private:
         int taille;
 		
-		public:
+	public:
 		// CONVENTION : les numeros sont croissants de gauche a droite et ligne par ligne de bas en haut
-		    Sudoku(int cote, std::vector<int> num_cases):Graphe_couleur(cote*cote,9){
-		        numerotation_init=num_cases;
-		        taille=cote;
-		        int nb_cases=cote*cote;
-		        vector<int> cases;
-		        vector< vector<int> > bloc;
-		        vector< vector<int> > lignes;
-		        vector< vector<int> > colonnes;
+        Sudoku(int cote, std::vector<int> num_cases):Graphe_couleur(cote*cote,9){
+            numerotation_init=num_cases;
+            taille=cote;
+            int nb_cases=cote*cote;
+            vector<int> cases;
+            vector< vector<int> > bloc;
+            vector< vector<int> > lignes;
+            vector< vector<int> > colonnes;
 
-		        for(int i=0;i<nb_cases;i++){
-				    cases.push_back(i);
-		        }
+            for(int i=0;i<nb_cases;i++){
+                cases.push_back(i);
+            }
 					
                 vector<int> aux2({0,3,6,27,30,33,54,57,60});
 		            for(int i=0;i<cote;i++){
