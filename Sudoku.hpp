@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 class Sudoku : public Graphe_couleur{
     private:
         // Argument taille du Sudoku :  
