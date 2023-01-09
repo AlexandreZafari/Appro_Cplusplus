@@ -9,6 +9,9 @@ Graphe_Projet: Graphe_Projet.o Sudoku.o
 Graphe_Projet.o: Graphe_Projet.cpp Graphe.hpp
 	$(CC) $(CFLAGS) -c Graphe_Projet.cpp -o Graphe_Projet.o
 
+Graphe.o: Graphe.cpp Graphe.hpp
+	$(CC) $(CFLAGS) -c Graphe.cpp -o Graphe.o
+
 Sudoku.o: Sudoku.cpp Sudoku.hpp
 	$(CC) $(CFLAGS) -c Sudoku.cpp -o Sudoku.o
 
