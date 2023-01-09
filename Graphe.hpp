@@ -19,7 +19,7 @@ class Graphe{
 		vector<int> sommets;
     
 	public:
-
+	// Constructeurs
 
 	Graphe(vector<int> som, vector<pair<int,int>> arr) : n(som.size()), sommets(som), arretes(arr){}
 
@@ -62,12 +62,12 @@ class Graphe{
 			{
 				cout << k.second << "--" << k.first << endl;
 			}
-    };
+    	};
 
-    for_each(arretes.begin(),arretes.end(), function);
-    
-    return aux;
-}
+		for_each(arretes.begin(),arretes.end(), function);
+		
+		return aux;
+	}
 
 	vector<int> liste_sommets() const {return sommets;}
 		
