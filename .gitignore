@@ -1,0 +1,11 @@
+### executable
+*.exe
+*.out
+*.app
+
+.vscode
+
+.DS_Store
+
+*.o
+
