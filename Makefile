@@ -1,16 +1,16 @@
 CC = g++
 CFLAGS = -Wall -O2 -std=c++11
 
-all: Graphe_Test
+all: Graphe_Projet
 
-Graphe_Test: Graphe_Test.o Sudoku.o
-	$(CC) $(CFLAGS) -o Graphe_Test Sudoku.o
+Graphe_Projet: Graphe_Projet.o Sudoku.o
+	$(CC) $(CFLAGS) -o Graphe_Projet Sudoku.o
 
-Graphe_Test.o: Graphe_Test.cpp Graphe.hpp
-	$(CC) $(CFLAGS) -c Graphe_Test.cpp -o Graphe_Test.o
+Graphe_Projet.o: Graphe_Projet.cpp Graphe.hpp
+	$(CC) $(CFLAGS) -c Graphe_Projet.cpp -o Graphe_Projet.o
 
 Sudoku.o: Sudoku.cpp Sudoku.hpp
 	$(CC) $(CFLAGS) -c Sudoku.cpp -o Sudoku.o
 
 clean:
-	rm -f Graphe_Test *.o
+	rm -f Graphe_Projet *.o
