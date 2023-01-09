@@ -3,8 +3,8 @@ CFLAGS = -Wall -O2 -std=c++11
 
 all: Graphe_Projet
 
-Graphe_Projet: Graphe_Projet.o Sudoku.o
-	$(CC) $(CFLAGS) -o Graphe_Projet Sudoku.o
+Graphe_Projet: Graphe_Projet.o Sudoku.o Graphe.o
+	$(CC) $(CFLAGS) -o Graphe_Projet Graphe_Projet.o Sudoku.o Graphe.o
 
 Graphe_Projet.o: Graphe_Projet.cpp Graphe.hpp
 	$(CC) $(CFLAGS) -c Graphe_Projet.cpp -o Graphe_Projet.o
