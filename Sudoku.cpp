@@ -17,7 +17,7 @@ bool Sudoku::existe_arrete(int i,int j){
         {
             res=res+1;
         }
-    ;}
+    ;};
 
     for_each(arretes.begin(),arretes.end(), function);
     

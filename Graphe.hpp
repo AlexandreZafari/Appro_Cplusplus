@@ -21,7 +21,9 @@ class Graphe{
 	public:
 	// Constructeurs
 
-	Graphe(vector<int> som, vector<pair<int,int>> arr) : n(som.size()), sommets(som), arretes(arr){}
+	Graphe(int nb): n(nb){}
+
+	Graphe(vector<int> som, vector<pair<int,int>> arr) : n(som.size()), arretes(arr),sommets(som){}
 
 	Graphe(vector< vector<int> > pair_sommet){
 		int nb_arretes=pair_sommet.size();
@@ -45,10 +47,7 @@ class Graphe{
 		}
 	} 
 
-	Graphe(int nb): n(nb){
-		arretes;
-		sommets;
-	}
+	
 
 	virtual vector<int> operator[](int i){
 		vector<int> aux=sommets;
@@ -89,7 +88,7 @@ class Graphe_couleur : public Graphe{
 			
 		Graphe_couleur(int nb,int coul) : Graphe(nb),N(coul){}
 	
-		vector<int> Graphe_couleur::operator[](int i);
+		vector<int> operator[](int i);
 	
 		int nb_voisins(int i);
 	
