@@ -21,7 +21,7 @@ Graphe::Graphe(vector< vector<int> > pair_sommet){
 		{
 			sommets.push_back(42);
 		}
-	} 
+} 
 
 //opérateur pour accéder
 vector<int> Graphe::operator[](int i){
@@ -41,7 +41,7 @@ vector<int> Graphe::operator[](int i){
 		for_each(arretes.begin(),arretes.end(), function);
 		
 		return aux;
-	}
+}
 
 // Méthodes de la classe Graphe_couleur
 

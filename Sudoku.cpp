@@ -168,7 +168,7 @@ Sudoku::Sudoku(int cote, vector<int> num_cases):Graphe_couleur(cote*cote,9){
             }
 			
 		
-        }
+}// Fin du constructeur
 
 bool Sudoku::existe_arrete(int i,int j){
     if(i==j)
