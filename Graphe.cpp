@@ -2,45 +2,45 @@
 
 //constructeur par vector
 Graphe::Graphe(vector< vector<int> > pair_sommet){
-		int nb_arretes=pair_sommet.size();
+    int nb_arretes=pair_sommet.size();
 
-		vector<pair<int,int>> arretes(0);
-		set<int> myset;
+    vector<pair<int,int>> arretes(0);
+    set<int> myset;
 
-		for(int i=0;i<nb_arretes;i++)
-		{
-			myset.insert(pair_sommet[i][1]);
-			myset.insert(pair_sommet[i][0]);
-				pair <int,int> a(pair_sommet[i][0],pair_sommet[i][1]);
-			arretes.push_back(a);
-		}
+    for(int i=0;i<nb_arretes;i++)
+    {
+        myset.insert(pair_sommet[i][1]);
+        myset.insert(pair_sommet[i][0]);
+            pair <int,int> a(pair_sommet[i][0],pair_sommet[i][1]);
+        arretes.push_back(a);
+    }
 
-		vector<int> sommets(0);
+    vector<int> sommets(0);
 
-		for (set<int>::iterator it=myset.begin(); it!=myset.end(); ++it)
-		{
-			sommets.push_back(42);
-		}
+    for (set<int>::iterator it=myset.begin(); it!=myset.end(); ++it)
+    {
+        sommets.push_back(42);
+    }
 } 
 
 //opérateur pour accéder
 vector<int> Graphe::operator[](int i){
-		vector<int> aux=sommets;
-		
-		auto function=[i,aux](pair<int,int> k){
-			if(k.first==aux[i])
-			{
-				cout << k.first << "--" << k.second << endl;
-			}
-			else if (k.second==aux[i])
-			{
-				cout << k.second << "--" << k.first << endl;
-			}
-    	};
+    vector<int> aux=sommets;
+    
+    auto function=[i,aux](pair<int,int> k){
+        if(k.first==aux[i])
+        {
+            cout << k.first << "--" << k.second << endl;
+        }
+        else if (k.second==aux[i])
+        {
+            cout << k.second << "--" << k.first << endl;
+        }
+    };
 
-		for_each(arretes.begin(),arretes.end(), function);
-		
-		return aux;
+    for_each(arretes.begin(),arretes.end(), function);
+    
+    return aux;
 }
 
 // Méthodes de la classe Graphe_couleur
