@@ -19,20 +19,20 @@ class Graphe{
 		vector<int> sommets;
     
 	public:
-	// Constructeurs
+	// constructeurs
 
-	Graphe(int nb): n(nb){}
+		Graphe(int nb): n(nb){}
 
-	Graphe(vector<int> som, vector<pair<int,int>> arr) : n(som.size()), arretes(arr),sommets(som){}
+		Graphe(vector<int> som, vector<pair<int,int>> arr) : n(som.size()), arretes(arr),sommets(som){}
 
-	Graphe(vector< vector<int> > pair_sommet);
+		Graphe(vector< vector<int> > pair_sommet);
 
-	
-	virtual vector<int> operator[](int i);
+		// méthodes 
+		virtual vector<int> operator[](int i);
 
-	vector<int> liste_sommets() const {return sommets;}
-		
-	vector<pair<int,int>> liste_arretes() const {return arretes;}
+		vector<int> liste_sommets() const {return sommets;}
+			
+		vector<pair<int,int>> liste_arretes() const {return arretes;}
 };
 
 class Graphe_couleur : public Graphe{
@@ -42,6 +42,7 @@ class Graphe_couleur : public Graphe{
 		vector<int> numerotation_init;
 	
 	public:
+		// constructeurs
 		Graphe_couleur(vector<int> som, vector< pair<int,int> > arr, int nb_couleurs) : Graphe(som,arr),N(nb_couleurs){		
 			for(int i=0;i<n;i++){
 				couleurs.push_back(-1);
@@ -50,6 +51,7 @@ class Graphe_couleur : public Graphe{
 			
 		Graphe_couleur(int nb,int coul) : Graphe(nb),N(coul){}
 	
+		// méthodes
 		vector<int> operator[](int i);
 	
 		int nb_voisins(int i);
