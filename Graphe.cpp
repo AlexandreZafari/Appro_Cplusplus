@@ -1,6 +1,7 @@
 #include "Graphe.hpp"
 
-//constructeur par vector
+// Class Graphe
+//constructeur par vecteur
 Graphe::Graphe(vector< vector<int> > pair_sommet){
     int nb_arretes=pair_sommet.size();
 
